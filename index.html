@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ماهی | نمونه‌کارها</title>
+
+    <style>
+        /* تنظیمات کلی سایت */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: hsl(260, 100%, 82%), 100%, 82%)
+            color: #f5f5f5;
+            font-family: Tahoma, sans-serif;
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* منوی بالای سایت */
+        header {
+            background: #101016;
+            border-bottom: 1px solid #252530;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #b49aff;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #c5c5d0;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #b49aff;
+        }
+
+        /* بخش معرفی */
+        .hero {
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 80px 0;
+        }
+
+        .tag {
+            color: #b49aff;
+            background: #1b152b;
+            border: 1px solid #382955;
+            border-radius: 30px;
+            padding: 5px 14px;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 56px);
+            line-height: 1.5;
+            margin: 20px 0 10px;
+        }
+
+        .hero h1 span {
+            color: #b49aff;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: #a7a7b5;
+            margin: 0 0 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #b49aff;
+            color: #171020;
+            padding: 11px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .button:hover {
+            background: #c7b5ff;
+            transform: translateY(-2px);
+        }
+
+        /* بخش‌های اصلی */
+        section:not(.hero) {
+            padding: 65px 0;
+            scroll-margin-top: 85px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin: 0 0 10px;
+        }
+
+        .section-description {
+            color: #a7a7b5;
+            margin: 0 0 30px;
+        }
+
+        /* کارت‌های مهارت */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            flex: 1 1 180px;
+            background: #14141d;
+            border: 1px solid #292936;
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .skill h3 {
+            color: #c7b5ff;
+            margin-top: 0;
+        }
+
+        .skill p {
+            color: #a7a7b5;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+
+        /* کارت پروژه */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background: #14141d;
+            border: 1px solid #292936;
+            border-radius: 14px;
+            padding: 25px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .project:hover {
+            border-color: #8c70cf;
+            transform: translateY(-4px);
+        }
+
+        .project-number {
+            color: #b49aff;
+            font-size: 14px;
+        }
+
+        .project h3 {
+            margin: 10px 0;
+        }
+
+        .project p {
+            color: #a7a7b5;
+            font-size: 14px;
+        }
+
+        .project-label {
+            display: inline-block;
+            background: #242033;
+            color: #c7b5ff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        /* تماس */
+        .contact-box {
+            background: #14141d;
+            border: 1px solid #292936;
+            border-radius: 14px;
+            padding: 30px;
+        }
+
+        .contact-box p {
+            color: #a7a7b5;
+        }
+
+        /* پایین سایت */
+        footer {
+            border-top: 1px solid #252530;
+            padding: 25px 0;
+            color: #888896;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* سازگاری با موبایل */
+        @media (max-width: 650px) {
+            .navbar {
+                padding: 15px 0;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 400px;
+                padding: 60px 0;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a class="logo" href="#home">MAHI<span>.</span>DEV</a>
+
+            <nav>
+                <a href="#home">خانه</a>
+                <a href="#skills">مهارت‌ها</a>
+                <a href="#projects">پروژه‌ها</a>
+                <a href="#contact">تماس</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <section class="hero" id="home">
+                <span class="tag">مسیر یادگیری من در دنیای وب</span>
+
+                <h1>
+                    سلام، من ماهی هستم؛<br>
+                    <span>طراح وب در حال یادگیری.</span>
+                </h1>
+
+                <p>
+                    این وب‌سایت اولین نمونه‌کار شخصی من است.
+                    اینجا مسیر یادگیری، مهارت‌ها و پروژه‌هایی را
+                    که به‌مرور می‌سازم، به نمایش می‌گذارم.
+                </p>
+
+                <a class="button" href="#projects">مشاهده پروژه‌ها</a>
+            </section>
+
+            <section id="skills">
+                <h2 class="section-title">مهارت‌های من</h2>
+                <p class="section-description">
+                    مهارت‌هایی که در حال یادگیری و تمرین آن‌ها هستم.
+                </p>
+
+                <div class="skills">
+                    <article class="skill">
+                        <h3>HTML</h3>
+                        <p>ساختار و محتوای صفحات وب</p>
+                    </article>
+
+                    <article class="skill">
+                        <h3>CSS</h3>
+                        <p>طراحی ظاهر، رنگ‌ها و چیدمان سایت</p>
+                    </article>
+
+                    <article class="skill">
+                        <h3>JavaScript</h3>
+                        <p>ساخت قابلیت‌های تعاملی در وب‌سایت</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2 class="section-title">پروژه‌های من</h2>
+                <p class="section-description">
+                    پروژه‌های تمرینی من در مسیر یادگیری طراحی وب.
+                </p>
+
+                <div class="projects">
+                    <article class="project">
+                        <span class="project-number">پروژه ۰۱</span>
+                        <h3>اولین صفحه وب</h3>
+                        <p>
+                            اولین تجربه من در ساخت صفحه با HTML
+                            و طراحی ظاهر آن با CSS.
+                        </p>
+                        <span class="project-label">HTML + CSS</span>
+                    </article>
+
+                    <article class="project">
+                        <span class="project-number">پروژه ۰۲</span>
+                        <h3>وب‌سایت شخصی</h3>
+                        <p>
+                            همین وب‌سایت که برای معرفی خودم،
+                            مهارت‌ها و پروژه‌هایم طراحی کرده‌ام.
+                        </p>
+                        <span class="project-label">Portfolio</span>
+                    </article>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2 class="section-title">ارتباط با من</h2>
+
+                <div class="contact-box">
+                    <h3>بیایید در ارتباط باشیم.</h3>
+                    <p>
+                        این بخش را بعداً با ایمیل یا لینک‌های
+                        حرفه‌ای خودم تکمیل می‌کنم.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            ساخته‌شده توسط ماهی | اولین پروژه وب من
+        </div>
+    </footer>
+
+</body>
+</html>
